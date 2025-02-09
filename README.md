@@ -4,6 +4,7 @@ Turning USB ON/OFF using ESP-IDF.
 We can obtain products that turn USB on/off with a remote control about $4.   
 Both of these use a frequency of 433MHz radio signal.   
 Using these, you can turn on/off the USB device from the ESP32.   
+__The product on the left has only one button, so it may malfunction.__   
 ![Image](https://github.com/user-attachments/assets/88d1a4d8-c98b-44c4-b589-0b053ff2534b)
 
 
