@@ -65,4 +65,4 @@ At this timing, press the OFF button on the remote control.
 
 
 # ON/OFF by timer
-Read this.
+Read [this](https://github.com/nopnop2002/esp-idf-usb-switch/tree/main/timer).   
