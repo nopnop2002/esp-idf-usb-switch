@@ -36,7 +36,7 @@ Turn the USB ON/OFF using the teaching results.
 # Teaching
 ```
 git clone https://github.com/nopnop2002/esp-idf-usb-switch
-cd esp-idf-rc-switch/teaching
+cd esp-idf-usb-switch/teaching
 idf.py menuconfig
 idf.py flash
 ```
