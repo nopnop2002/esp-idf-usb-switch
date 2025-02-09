@@ -12,8 +12,8 @@ idf.py flash
 ![Image](https://github.com/user-attachments/assets/2394cfb1-537c-4f05-b8e7-d772864c7fe4)
 
 For this setting, first turn on the USB.   
-Turn off the USB after 5 seconds.   
-Turn on the USB after 10 seconds.   
+Turn off the USB after 10 seconds.   
+Turn on the USB after 5 seconds.   
 Repeat this.   
 
 # Wirering
