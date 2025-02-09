@@ -1,6 +1,7 @@
 # ON/OFF by timer
 Turning USB ON/OFF using timer.   
 This is the most basic example project.   
+You can use this project to see the results of your teaching.   
 
 # Configuration
 ```
