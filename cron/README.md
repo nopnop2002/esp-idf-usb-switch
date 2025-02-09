@@ -88,3 +88,7 @@ However, each task works independently.
 0 0-59/10 * * * * task_on         # run at 0/10/20/30/40/50 minute
 0 5-59/10 * * * * task_off        # run at 5/15/25/35/45/55 minute
 ```
+
+
+# Crontab basics
+https://docs.passwork.pro/crontab-basics
