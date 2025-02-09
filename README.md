@@ -62,6 +62,10 @@ At this timing, press the ON button on the remote control.
 At this timing, press the OFF button on the remote control.   
 ![Image](https://github.com/user-attachments/assets/61a7b880-2af8-4051-8ef7-5b0ec154ca35)
 
+# Clear teaching
+```
+idf.py erase-flash
+```
 
 # ON/OFF by timer
 Read [this](https://github.com/nopnop2002/esp-idf-usb-switch/tree/main/timer).   
