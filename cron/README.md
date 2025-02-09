@@ -91,4 +91,5 @@ However, each task works independently.
 
 
 # Crontab syntax
+Crontab allows complex scheduling.   
 https://docs.passwork.pro/crontab-basics
