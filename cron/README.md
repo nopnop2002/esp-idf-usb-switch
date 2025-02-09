@@ -90,5 +90,5 @@ However, each task works independently.
 ```
 
 
-# Crontab basics
+# Crontab syntax
 https://docs.passwork.pro/crontab-basics
