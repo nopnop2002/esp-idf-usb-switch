@@ -16,15 +16,15 @@ idf.py flash
 ![Image](https://github.com/user-attachments/assets/0ca043af-9667-41bf-a6a1-9969553684fb)
 
 ## WiFi Setting   
-Set the information of your access point.
+Set the information of your access point.   
 ![Image](https://github.com/user-attachments/assets/7accc112-40b1-4180-aab6-8cc359628391)
 
 ## NTP Setting   
-Set the information of your NTP server and time zone.
+Set the information of your NTP server and time zone.   
 ![Image](https://github.com/user-attachments/assets/bd723c26-b26b-4c2a-a4b2-57b35a01d1d5)
 
 ## RF Setting   
-Set the information of transmitter module.
+Set the information of transmitter module.   
 ![Image](https://github.com/user-attachments/assets/0633bef4-edb8-4f95-af89-544cc2f4a0e9)
 
 # Wirering
