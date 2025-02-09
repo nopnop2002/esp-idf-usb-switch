@@ -1,5 +1,6 @@
 # ON/OFF by timer
-Turning USB ON/OFF using ESP-IDF.   
+Turning USB ON/OFF using timer.   
+This is the most basic example project.   
 
 # Configuration
 ```
