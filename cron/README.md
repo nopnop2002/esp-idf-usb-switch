@@ -8,7 +8,7 @@ This is a great library.
 # Configuration
 ```
 git clone https://github.com/nopnop2002/esp-idf-usb-switch
-cd esp-idf-rc-switch/cron
+cd esp-idf-usb-switch/cron
 idf.py menuconfig
 idf.py flash
 ```
