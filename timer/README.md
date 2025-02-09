@@ -5,7 +5,7 @@ This is the most basic example project.
 # Configuration
 ```
 git clone https://github.com/nopnop2002/esp-idf-usb-switch
-cd esp-idf-rc-switch/timer
+cd esp-idf-usb-switch/timer
 idf.py menuconfig
 idf.py flash
 ```
