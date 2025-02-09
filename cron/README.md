@@ -92,4 +92,10 @@ However, each task works independently.
 
 # Crontab syntax
 Crontab allows complex scheduling.   
-https://docs.passwork.pro/crontab-basics
+```
+"*/15 * 1-4 * * *",  "2012-07-01_09:53:50", "2012-07-02_01:00:00"
+"0 */2 1-4 * * *",   "2012-07-01_09:00:00", "2012-07-02_01:00:00"
+"0 0 7 ? * MON-FRI", "2009-09-26_00:42:55", "2009-09-28_07:00:00"
+"0 30 23 30 1/3 ?",  "2011-04-30_23:30:00", "2011-07-30_23:30:00"
+```
+See more examples in [test](https://github.com/staticlibs/ccronexpr/blob/a1343bc5a546b13430bd4ac72f3b047ac08f8192/ccronexpr_test.c#L251).   
