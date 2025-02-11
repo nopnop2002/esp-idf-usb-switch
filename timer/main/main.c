@@ -1,3 +1,13 @@
+/*
+    Example to turn on/off USB using timer
+
+    This example code is in the Public Domain (or CC0 licensed, at your option.)
+
+    Unless required by applicable law or agreed to in writing, this
+    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+    CONDITIONS OF ANY KIND, either express or implied.
+*/
+
 #include <stdio.h>
 #include <math.h>
 #include "freertos/FreeRTOS.h"
@@ -95,34 +105,34 @@ void app_main()
 #if CONFIG_INITIAL_STATE_ON
 	ESP_LOGI(TAG, "USB ON");
 	setProtocol(&RCSwitch, ProtocolOn);
-	send(&RCSwitch, ValueOn, BitlengthOn);
+	sendCode(&RCSwitch, ValueOn, BitlengthOn);
 	vTaskDelay(pdMS_TO_TICKS(interval_to_off));
 
 	while(1) {
 		ESP_LOGI(TAG, "USB OFF");
 		setProtocol(&RCSwitch, ProtocolOff);
-		send(&RCSwitch, ValueOff, BitlengthOff);
+		sendCode(&RCSwitch, ValueOff, BitlengthOff);
 		vTaskDelay(pdMS_TO_TICKS(interval_to_on));
 		ESP_LOGI(TAG, "USB ON");
 		setProtocol(&RCSwitch, ProtocolOn);
-		send(&RCSwitch, ValueOn, BitlengthOn);
+		sendCode(&RCSwitch, ValueOn, BitlengthOn);
 		vTaskDelay(pdMS_TO_TICKS(interval_to_off));
 	} // end while
 
 #elif CONFIG_INITIAL_STATE_OFF
 	ESP_LOGI(TAG, "USB OFF");
 	setProtocol(&RCSwitch, ProtocolOff);
-	send(&RCSwitch, ValueOff, BitlengthOff);
+	sendCode(&RCSwitch, ValueOff, BitlengthOff);
 	vTaskDelay(pdMS_TO_TICKS(interval_to_on));
 
 	while(1) {
 		ESP_LOGI(TAG, "USB ON");
 		setProtocol(&RCSwitch, ProtocolOn);
-		send(&RCSwitch, ValueOn, BitlengthOn);
+		sendCode(&RCSwitch, ValueOn, BitlengthOn);
 		vTaskDelay(pdMS_TO_TICKS(interval_to_off));
 		ESP_LOGI(TAG, "USB OFF");
 		setProtocol(&RCSwitch, ProtocolOff);
-		send(&RCSwitch, ValueOff, BitlengthOff);
+		sendCode(&RCSwitch, ValueOff, BitlengthOff);
 		vTaskDelay(pdMS_TO_TICKS(interval_to_on));
 	} // end while
 #endif
