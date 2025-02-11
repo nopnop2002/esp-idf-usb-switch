@@ -1,5 +1,5 @@
 /*
-	cron example for ESP-IDF
+	Example to turn on/off USB using cron
 
 	This example code is in the Public Domain (or CC0 licensed, at your option.)
 
@@ -36,7 +36,7 @@ static EventGroupHandle_t s_wifi_event_group;
 #define WIFI_CONNECTED_BIT BIT0
 #define WIFI_FAIL_BIT BIT1
 
-static const char *TAG = "main";
+static const char *TAG = "MAIN";
 
 static int s_retry_num = 0;
 
@@ -101,12 +101,10 @@ esp_err_t wifi_init_sta(void)
 			},
 		},
 	};
-	ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA) );
-	ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config) );
-	//ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE));
-	ESP_ERROR_CHECK(esp_wifi_start() );
-
-	ESP_LOGI(TAG, "wifi_init_sta finished.");
+	ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE));
+	ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+	ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config));
+	ESP_ERROR_CHECK(esp_wifi_start());
 
 	/* Waiting until either the connection is established (WIFI_CONNECTED_BIT) or connection failed for the maximum
 	 * number of re-tries (WIFI_FAIL_BIT). The bits are set by event_handler() (see above) */
@@ -129,11 +127,9 @@ esp_err_t wifi_init_sta(void)
 		ret_value = ESP_FAIL;
 	}
 
-#if 0
 	/* The event will not be processed after unregister */
 	ESP_ERROR_CHECK(esp_event_handler_instance_unregister(IP_EVENT, IP_EVENT_STA_GOT_IP, instance_got_ip));
 	ESP_ERROR_CHECK(esp_event_handler_instance_unregister(WIFI_EVENT, ESP_EVENT_ANY_ID, instance_any_id));
-#endif
 	vEventGroupDelete(s_wifi_event_group);
 	return ret_value;
 }
@@ -315,8 +311,6 @@ esp_err_t build_table(char *fileName, CRON_t **tables, int16_t *ntable) {
 	return ESP_OK;
 }
 
-#define delayMillSec 10*1000 // 10 Seconds
-
 // Turn on USB
 void task_on(void *pvParameters) {
 	ESP_LOGI(pcTaskGetName(NULL), "%"PRIu32" Start", (uint32_t)xTaskGetCurrentTaskHandle());
@@ -362,13 +356,13 @@ void task_on(void *pvParameters) {
 	RCSWITCH_t RCSwitch;
 	initSwich(&RCSwitch);
 	enableTransmit(&RCSwitch, CONFIG_RF_GPIO);
-	setRepeatTransmit(&RCSwitch, 3);
+	setRepeatTransmit(&RCSwitch, 10);
 
 	while(1) {
 		ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
 		ESP_LOGI(pcTaskGetName(NULL), "Wake Up");
 		setProtocol(&RCSwitch, ProtocolOn);
-		send(&RCSwitch, ValueOn, BitlengthOn);
+		sendCode(&RCSwitch, ValueOn, BitlengthOn);
 		ESP_LOGD(pcTaskGetName(NULL), "Wait for Notify");
 	}
 	vTaskDelete(NULL);
@@ -419,13 +413,13 @@ void task_off(void *pvParameters) {
 	RCSWITCH_t RCSwitch;
 	initSwich(&RCSwitch);
 	enableTransmit(&RCSwitch, CONFIG_RF_GPIO);
-	setRepeatTransmit(&RCSwitch, 3);
+	setRepeatTransmit(&RCSwitch, 10);
 
 	while(1) {
 		ulTaskNotifyTake( pdTRUE, portMAX_DELAY );
 		ESP_LOGI(pcTaskGetName(NULL), "Wake Up");
 		setProtocol(&RCSwitch, ProtocolOff);
-		send(&RCSwitch, ValueOff, BitlengthOff);
+		sendCode(&RCSwitch, ValueOff, BitlengthOff);
 		ESP_LOGD(pcTaskGetName(NULL), "Wait for Notify");
 	}
 	vTaskDelete(NULL);
