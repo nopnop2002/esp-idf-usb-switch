@@ -1,0 +1,9 @@
+## IDF Component Manager Manifest File
+dependencies:
+  espressif/mdns:
+    version: "^1.0.3"
+    rules:
+      - if: "idf_version >=5.0"
+  nopnop2002/RCSwitch:
+    path: components/RCSwitch/
+    git: https://github.com/nopnop2002/esp-idf-rc-switch.git

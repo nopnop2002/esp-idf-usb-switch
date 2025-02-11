@@ -1,0 +1,110 @@
+menu "Application configuration"
+
+	config GPIO_RANGE_MAX
+		int
+		default 33 if IDF_TARGET_ESP32
+		default 46 if IDF_TARGET_ESP32S2
+		default 48 if IDF_TARGET_ESP32S3
+		default 18 if IDF_TARGET_ESP32C2
+		default 19 if IDF_TARGET_ESP32C3
+
+	menu "WiFi Setting"
+
+		config ESP_WIFI_SSID
+			string "WiFi SSID"
+			default "myssid"
+			help
+				SSID (network name) to connect to.
+
+		config ESP_WIFI_PASSWORD
+			string "WiFi Password"
+			default "mypassword"
+			help
+				WiFi password (WPA or WPA2) to connect to.
+
+		config ESP_MAXIMUM_RETRY
+			int "Maximum retry"
+			default 5
+			help
+				Set the Maximum retry to avoid station reconnecting to the AP unlimited when the AP is really inexistent.
+
+		config MDNS_HOSTNAME
+			string "mDNS Hostname"
+			default "esp32-server"
+			help
+				The mDNS host name used by the ESP32.
+
+		config STATIC_IP
+			bool "Enable Static IP Address"
+			default false
+			help
+				Enable Static IP Address.
+
+		config STATIC_IP_ADDRESS
+			depends on STATIC_IP
+			string "Static IP Address"
+			default "192.168.10.100"
+			help
+				Static IP Address for Station.
+
+		config STATIC_GW_ADDRESS
+			depends on STATIC_IP
+			string "Static GW Address"
+			default "192.168.10.1"
+			help
+				Static GW Address for Station.
+
+		config STATIC_NM_ADDRESS
+			depends on STATIC_IP
+			string "Static Netmask"
+			default "255.255.255.0"
+			help
+				Static Netmask for Station.
+
+	endmenu
+
+	menu "Network Setting"
+
+		choice NETWORK
+			bool "Select Network protocol"
+			default NETWORK_HTTP
+			help
+				Select Network protocol.
+			config NETWORK_HTTP
+				bool "Use HTTP protocol"
+			config NETWORK_MQTT
+				bool "Use MQTT protocol"
+		endchoice
+
+		config MQTT_BROKER
+			depends on NETWORK_MQTT
+			string "MQTT Broker"
+			default "broker.emqx.io"
+			help
+				Host name or IP address of the broker to connect to.
+
+		config MQTT_SUB_TOPIC
+			depends on NETWORK_MQTT
+			string "Subscribe Topic"
+			default "/api/usb/#"
+			help
+				Topic of publish.
+
+	endmenu
+
+	menu "RF Setting"
+
+		config RF_GPIO
+			int "GPIO number to RF data"
+			range 0 GPIO_RANGE_MAX
+			default 5
+			help
+				GPIO number (IOxx) to RF data.
+				Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to MOSI.
+				On the ESP32, GPIOs 35-39 are input-only so cannot be used as outputs.
+				On the ESP32-S2, GPIO 46 is input-only so cannot be used as outputs.
+
+	endmenu
+
+endmenu
+
