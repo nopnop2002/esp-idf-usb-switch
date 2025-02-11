@@ -49,10 +49,10 @@ Set the information of transmitter module.
 # API for HTTP
 
 - turn on   
-```curl -X POST -H "Content-Type: application/json" http://esp32-server.local:8080/api/on```
+```curl -X POST http://esp32-server.local:8080/api/on```
 
 - turn off   
-```curl -X POST -H "Content-Type: application/json" http://esp32-server.local:8080/api/off```
+```curl -X POST http://esp32-server.local:8080/api/off```
 
 
 
