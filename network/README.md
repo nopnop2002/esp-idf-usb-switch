@@ -15,6 +15,7 @@ idf.py flash
 ![Image](https://github.com/user-attachments/assets/a089a1d9-6513-4f3e-a4b2-73492b3cf229)
 
 ## WiFi Setting   
+Set the information of your access point.   
 ![Image](https://github.com/user-attachments/assets/6eab8920-0677-41bf-b817-9f870185ba4b)
 
 You can connect using the mDNS hostname instead of the IP address.   
