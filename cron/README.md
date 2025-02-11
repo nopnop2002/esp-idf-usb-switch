@@ -5,13 +5,15 @@ I found [this](https://github.com/staticlibs/ccronexpr) library.
 Defining dates and times in crontab is complicated, but this library handles it well.   
 This is a great library.   
 
-# Configuration
+# Installation
 ```
 git clone https://github.com/nopnop2002/esp-idf-usb-switch
 cd esp-idf-usb-switch/cron
 idf.py menuconfig
 idf.py flash
 ```
+
+# Configuration
 ![Image](https://github.com/user-attachments/assets/c61a2327-6c7a-4f3d-8415-fed6d4cb870b)
 ![Image](https://github.com/user-attachments/assets/0ca043af-9667-41bf-a6a1-9969553684fb)
 
