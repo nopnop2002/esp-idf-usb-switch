@@ -52,7 +52,7 @@ idf.py flash
 ![Image](https://github.com/user-attachments/assets/65c98e54-c370-470d-a14b-f5fcb31ed772)
 
 
-## Wirering
+## Wiring
 |Receiver Module||ESP32|
 |:-:|:-:|:-:|
 |DATA|--|GPIO4|

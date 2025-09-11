@@ -35,7 +35,7 @@ Using MQTT
 Set the information of transmitter module.   
 ![Image](https://github.com/user-attachments/assets/ce2a2fed-7393-439e-a2d9-353a8e538712)
 
-# Wirering
+# Wiring
 |Transmitter Module||ESP32|
 |:-:|:-:|:-:|
 |DATA|--|GPIO5|

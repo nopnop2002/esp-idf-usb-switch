@@ -29,7 +29,7 @@ Set the information of your NTP server and time zone.
 Set the information of transmitter module.   
 ![Image](https://github.com/user-attachments/assets/0633bef4-edb8-4f95-af89-544cc2f4a0e9)
 
-# Wirering
+# Wiring
 |Transmitter Module||ESP32|
 |:-:|:-:|:-:|
 |DATA|--|GPIO5|

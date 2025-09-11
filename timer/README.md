@@ -18,7 +18,7 @@ Turn off the USB after 10 seconds.
 Turn on the USB after 5 seconds.   
 Repeat this.   
 
-# Wirering
+# Wiring
 |Transmitter Module||ESP32|
 |:-:|:-:|:-:|
 |DATA|--|GPIO5|
