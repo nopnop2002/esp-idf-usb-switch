@@ -103,7 +103,7 @@ esp_err_t wifi_init_sta(void)
 	};
 	ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE));
 	ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-	ESP_ERROR_CHECK(esp_wifi_set_config(ESP_IF_WIFI_STA, &wifi_config));
+	ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
 	ESP_ERROR_CHECK(esp_wifi_start());
 
 	/* Waiting until either the connection is established (WIFI_CONNECTED_BIT) or connection failed for the maximum
@@ -439,11 +439,7 @@ void app_main(void)
 	ESP_ERROR_CHECK(wifi_init_sta());
 
 	// Obtain time over NTP
-	ret = obtain_time();
-	if(ret != ESP_OK) {
-		ESP_LOGE(TAG, "Fail to getting time over NTP.");
-		return;
-	}
+	ESP_ERROR_CHECK(obtain_time());
 
 #if 0
 	// Print current time
@@ -459,11 +455,7 @@ void app_main(void)
 	// Mount SPIFFS
 	char *partition_label = "storage";
 	char *base_path = "/spiffs"; 
-	ret = mountSPIFFS(partition_label, base_path);
-	if (ret != ESP_OK) {
-		ESP_LOGE(TAG, "mountSPIFFS fail");
-		while(1) { vTaskDelay(1); }
-	}
+	ESP_ERROR_CHECK(mountSPIFFS(partition_label, base_path));
 	printSPIFFS(base_path);
 	
 	// Read crontab
